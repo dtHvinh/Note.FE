@@ -1,5 +1,9 @@
+import LeftSideBar from "@/components/LeftSideBar";
+import "@/styles/prosemirror.css";
+import 'katex/dist/katex.min.css';
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Tooltip } from "radix-ui";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -23,11 +27,24 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></link>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+      </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased  bg-gray-50 dark:bg-gray-900`}
       >
-        {children}
+        <Tooltip.Provider delayDuration={200}>
+          <div className="flex h-screen overflow-hidden">
+            <LeftSideBar />
+            <main className="flex-1 overflow-y-auto">
+              <div className="mx-auto max-w-7xl bg-[#191919] min-h-screen">
+                {children}
+              </div>
+            </main>
+          </div>
+        </Tooltip.Provider>
       </body>
     </html>
   );
