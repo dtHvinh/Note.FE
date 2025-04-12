@@ -4,6 +4,7 @@ import 'katex/dist/katex.min.css';
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Tooltip } from "radix-ui";
+import { Toaster } from "sonner";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -36,6 +37,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased  bg-gray-50 dark:bg-gray-900`}
       >
         <Tooltip.Provider delayDuration={200}>
+          <Toaster />
           <div className="flex h-screen overflow-hidden">
             <LeftSideBar />
             <main className="flex-1 overflow-y-auto">

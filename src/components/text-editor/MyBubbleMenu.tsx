@@ -11,8 +11,8 @@ export default function MyBubbleMenu({ editor }: { editor: Editor }) {
     return (
         <div className="flex items-center bg-white dark:bg-[#202124] text-dark dark:text-white text-sm absolute 
                         [&_*]:text-nowrap [&_*]:transition-colors 
-                        px-5
-                        p-2 rounded-full space-x-1
+                        px-1
+                        p-2 rounded-md space-x-1
                         mt-10">
             <div className="relative">
                 <button
